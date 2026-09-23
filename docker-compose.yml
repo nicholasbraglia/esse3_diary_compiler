@@ -1,0 +1,31 @@
+services:
+  web:
+    build: .
+    container_name: thesis_django_web
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ALLOWED_HOSTS=localhost,127.0.0.1,web
+      - SELENIUM_REMOTE_URL=http://chrome:4444/wd/hub
+    depends_on:
+      - chrome
+
+  chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: thesis_selenium_chrome
+    restart: unless-stopped
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+    shm_size: 2gb
+    environment:
+      - SE_START_XVFB=true
+      - SE_START_VNC=true
+      - SE_VNC_NO_PASSWORD=1
+

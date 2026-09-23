@@ -1,0 +1,43 @@
+{
+  "assistenza laureandi": [
+    "bsc", "msc", "tesi", "thesis", "laureand", "triennale", "revisione", "final-year", "graduating"
+  ],
+  "attività did. atenei convenzionati": [
+    "convenzion", "ateneo esterno", "lezione esterna", "estern", "external"
+  ],
+  "attività didattiche integrative": [
+    "integrativ", "seminario", "esercitazione", "laboratorio", "tutorato", "workshop", "tutoring", "laboratory"
+  ],
+  "attività dottorati di ricerca": [
+    "phd", "dottorato", "phd checkpoint", "doctoral", "ricerca"
+  ],
+  "attività master": [
+    "master", "magistrale"
+  ],
+  "Attività PNRR (solo RTD-A)": [
+    "pnrr", "rtd-a", "ricercatore", "researcher"
+  ],
+  "attività scuole di specializzazione": [
+    "specializzazione", "scuola spec", "specialization"
+  ],
+  "compiti organizzativi interni": [
+    "riunione", "consiglio", "dipartimento", "collegio", "commissione", "senato", "giunta", "cda", "riunione docenti", "meeting",
+    "council", "department", "commission", "senate", "executive committee"
+  ],
+  "esami di laurea": [
+    "seduta di laurea", "commissione laurea", "proclamazione", "discussione tesi", "difesa tesi", "defense", "laurea", "sessione", "esame", "exam",
+    "graduation", "conferral"
+  ],
+  "esami di profitto": [
+    "esame", "appello", "scritto", "orale", "parziale", "esonero", "exam", "written", "oral"
+  ],
+  "orient. e tutor. piani di studio, stages": [
+    "orientamento", "stage", "tirocinio", "piano di studio", "open day", "tutorato", "internship"
+  ],
+  "preparazione lezioni": [
+    "preparazione", "lezione", "slide", "materiale didattico", "dispense", "class"
+  ],
+  "ricevimento studenti": [
+    "ricevimento", "office hours", "colloquio", "appuntamento", "consultation", "appointment"
+  ]
+}
