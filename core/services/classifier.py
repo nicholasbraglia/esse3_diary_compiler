@@ -4,7 +4,7 @@ import logging
 from google import genai
 from dotenv import load_dotenv
 
-# Carica le variabili dal file .env
+# Load the variables from the .env file
 load_dotenv()
 
 logger = logging.getLogger(__name__)
@@ -28,25 +28,6 @@ class ClassifierEsse3:
             return {}
         with open(filepath, 'r', encoding='utf-8') as f:
             return json.load(f)
-
-    # def classify(self, title):
-    #     if not title:
-    #         return "Da non considerare", "Errore"
-    #
-    #     title_lower = title.lower()
-    #     found_categories = []
-    #
-    #     for category, words in self.rules.items():
-    #         for word in words:
-    #             if word in title_lower:
-    #                 if category not in found_categories:
-    #                     found_categories.append(category)
-    #                 break
-    #
-    #     if len(found_categories) == 1:
-    #         return found_categories[0], "JSON (Locale)"
-    #
-    #     return self._ask_to_gemini(title), "IA (Gemini)"
 
 
     def classify(self, title):
@@ -80,7 +61,6 @@ class ClassifierEsse3:
             return vincitori[0], f"JSON (Conteggio: {max_score} parole)"
 
         return self._ask_to_gemini(title), f"IA (Spareggio tra {len(vincitori)} categorie)"
-        #return "Da non considerare", f"IA (Spareggio tra {len(vincitori)} categorie)"
 
 
 
@@ -104,9 +84,6 @@ class ClassifierEsse3:
             """
 
         try:
-            # client = genai.Client(api_key=self.api_key)
-            # chat = client.chats.create(model='gemini-3.5-flash')
-            # response = chat.send_message(prompt)
             response = self.client.models.generate_content(
                 model='gemini-3.6-flash',
                 contents=prompt

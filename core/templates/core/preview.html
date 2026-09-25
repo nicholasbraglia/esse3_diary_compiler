@@ -33,13 +33,13 @@
         button { background-color: #28a745; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; width: 100%; }
         button:hover { background-color: #218838; }
         #loading-screen {
-            display: none; /* Nascosto di default */
+            display: none;
             text-align: center;
             padding: 40px 20px;
         }
         .spinner {
             border: 6px solid #f3f3f3;
-            border-top: 6px solid #28a745; /* Colore verde in tema */
+            border-top: 6px solid #28a745;
             border-radius: 50%;
             width: 60px;
             height: 60px;
@@ -97,10 +97,6 @@
                         <td>{{ event.date }}</td>
                         <td>
                             <strong>{{ event.title }}</strong><br>
-                            <!--<small style="color: #666;">(Classificato via: {{ event.method }})</small>-->
-                            <!--{% if event.category == 'Da non considerare' %}
-                                <br><span class="badge-ignored">⚠️ Da non considerare</span>
-                            {% endif %}-->
                         </td>
                         <td>{{ event.duration }}</td>
                         <td>

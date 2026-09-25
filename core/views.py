@@ -22,24 +22,6 @@ def dashboard(request):
     return render(request, 'core/dashboard.html')
 
 
-# def google_login(request):
-#     if request.method == 'POST':
-#         request.session['start_date'] = request.POST.get('start_date')
-#         request.session['end_date'] = request.POST.get('end_date')
-#
-#         redirect_uri = request.build_absolute_uri(reverse('google_callback'))
-#         flow = Flow.from_client_secrets_file(
-#             CLIENT_SECRETS_FILE, scopes=SCOPES, redirect_uri=redirect_uri
-#         )
-#
-#         authorization_url, state = flow.authorization_url(access_type='offline', include_granted_scopes='true')
-#         request.session['state'] = state
-#         request.session['code_verifier'] = flow.code_verifier
-#
-#         return redirect(authorization_url)
-#     return redirect('dashboard')
-
-
 def google_login(request):
     # Early return: if it is not a POST request, return immediately
     if request.method != 'POST':
@@ -59,30 +41,6 @@ def google_login(request):
     })
 
     return redirect(authorization_url)
-
-
-# def google_callback(request):
-#     state = request.session.get('state')
-#     redirect_uri = request.build_absolute_uri(reverse('google_callback'))
-#
-#     flow = Flow.from_client_secrets_file(
-#         CLIENT_SECRETS_FILE, scopes=SCOPES, state=state, redirect_uri=redirect_uri
-#     )
-#     flow.code_verifier = request.session.get('code_verifier')
-#
-#     authorization_response = request.build_absolute_uri()
-#     flow.fetch_token(authorization_response=authorization_response)
-#     credentials = flow.credentials
-#
-#     request.session['google_creds'] = {
-#         'token': credentials.token,
-#         'refresh_token': credentials.refresh_token,
-#         'token_uri': credentials.token_uri,
-#         'client_id': credentials.client_id,
-#         'client_secret': credentials.client_secret,
-#         'scopes': credentials.scopes
-#     }
-#     return redirect('preview_matrix')
 
 
 def google_callback(request):
@@ -218,9 +176,6 @@ def sync_esse3(request):
                 matrix_esse3[date_val][category_val] += duration_val
 
         risultato = execute_diary_sync(matrix_esse3, username, password, clean_otp)
-
-        # HTML_FILE_PATH = "C:/Users/nichy/Downloads/Braglia - Diario Esse3/Diario Docente, Università di UNIMORE_usabile.html"
-        # risultato = run_local_selenium_test(HTML_FILE_PATH, matrix_esse3)
 
         context = {
             'message': risultato.get('message', 'Operazione completata.'),
